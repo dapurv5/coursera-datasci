@@ -1,7 +1,16 @@
 import sys
 
+def get_dict():
+    afinnfile = open("AFINN-111.txt")
+    scores = {}
+    for line in afinnfile:
+        term, score = line.split("\t")
+        scores[term] = int(score)
+    return scores
+
 def hw():
-    print 'Hello, world!'
+    score = get_dict()
+    print score
 
 def lines(fp):
     print str(len(fp.readlines()))
